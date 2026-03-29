@@ -35,38 +35,42 @@ function Users() {
   return (
     <div>
       <h2>User List</h2>
+
       <Link to="/create">
         <button>Add User</button>
       </Link>
 
-      <table border="1">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Age</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {users.map((user) => (
-            <tr key={user._id}>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-              <td>{user.age}</td>
-              <td>
-                <Link to={`/update/${user._id}`}>
-                  <button>Edit</button>
-                </Link>
-                <button onClick={() => handleDelete(user._id)}>
-                  Delete
-                </button>
-              </td>
+      {/* ✅ RESPONSIVE TABLE WRAPPER */}
+      <div className="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Age</th>
+              <th>Action</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+            {users.map((user) => (
+              <tr key={user._id}>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>{user.age}</td>
+                <td>
+                  <Link to={`/update/${user._id}`}>
+                    <button>Edit</button>
+                  </Link>
+                  <button onClick={() => handleDelete(user._id)}>
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
