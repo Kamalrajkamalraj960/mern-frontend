@@ -8,7 +8,7 @@ function CreateUser() {
   const [email, setEmail] = useState("");
   const [age, setAge] = useState("");
   const navigate = useNavigate();
-
+ 
   const Submit = async (e) => {
     e.preventDefault();
 
